@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+    :root {
+      --main-color: #ff0055;
+      --accent-color: #00ffe7;
+      --bg-glass: rgba(255, 255, 255, 0.1);
+    }
+  body {
+    margin: 0;
+    /* background: linear-gradient(135deg, #4b6cb7, #182848); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+      /* font-family: 'Montserrat', sans-serif; */
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    
+  }
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+ background: #000000dd;
+     padding: 7px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* keep nav centered */
+    box-sizing: border-box;
+    z-index: 100;
+          border-bottom: 1px solid var(--main-color);
+                font-family: 'Orbitron', sans-serif;
+
+
+  }
+  /* Brand name "RIJAN" top-left */
+ 
+  nav {
+    max-width: 900px;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .nav-list a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  /* Underline on hover and focus */
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: #ffd700; /* gold/yellow underline */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  .nav-list a:hover::after,
+  .nav-list a:focus::after {
+    width: 100%;
+  }
+  .nav-list a:hover,
+  .nav-list a:focus {
+    /* color: #ffd700; */
+    outline: none;
+  }
+  main {
+    background: rgba(255, 255, 255, 0.14);
+    padding: 60px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    width: 480px;
+    max-width: 95vw;
+    backdrop-filter: blur(15px);
+    margin-top: 80px; /* to avoid header overlap */
+    color: #000; /* make input text readable */
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    border-radius: 14px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    background: #f0f0f3;
+    transition: box-shadow 0.3s ease;
+  }
+  input[type="text"]::placeholder,
+  input[type="password"]::placeholder {
+    color: #9ca3af;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px 5px #ffd700;
+    background: #fff;
+  }
+  button {
+    width: 100%;
+    padding: 20px 0;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  button:hover,
+  button:focus {
+    background: linear-gradient(90deg, #2563eb, #1e40af);
+    box-shadow: 0 0 18px #2563eb;
+    outline: none;
+  }
+  .link-container {
+    text-align: center;
+    margin-top: 28px;
+  }
+  /* Forgotten password style */
+  .forgot-password {
+    color: #3b82f6; /* bright blue */
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+  .forgot-password:hover,
+  .forgot-password:focus {
+    color: #1e40af; /* darker blue on hover */
+    outline: none;
+  }
+  /* Create new account styled as button */
+  .create-account-btn {
+    display: inline-block;
+    background-color: #3b82f6; /* Facebook/Instagram blue */
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  .create-account-btn:hover,
+  .create-account-btn:focus {
+    background-color: #2563eb;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.7);
+    outline: none;
+  }
+  @media (max-width: 520px) {
+    main {
+      padding: 40px 30px;
+      width: 90vw;
+    }
+  }
+  @media (max-width: 360px) {
+    .nav-list {
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+    .brand {
+      font-size: 1.5rem;
+      left: 15px;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+  .logo {
+  font-size: 23px;
+  /* font-weight: bold; */
+  /* font-family: 'Segoe UI', sans-serif; */
+  display: inline-block;
+   position: absolute;
+    left: 30px;
+    font-weight: 700; 
+    font-size: 1.6rem;
+   color: #ff0055;
+    user-select: no ne;
+    letter-spacing: 1px;
+   cursor: pointer;
+}
+
+.logo-green {
+  color: #34ef82; 
+}
+
+.logo-dark {
+  color: #0a7fe6; 
+}
+
+</style>
+</head>
+<body>
+<header>
+<div class="logo" style="cursor: pointer;">
+<a href="index.html" style="text-decoration: none;">  <span class="logo-green">Electro-</span><span class="logo-dark">Bazzar</span>
+</a>
+</div>  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="https://developer.atlassian.com/server/jira/platform/web-section/" target="_blank" rel="noopener noreferrer">WEB-SECTION</a></li>
+      <li><a href="https://www.webdesign.org/" target="_blank" rel="noopener noreferrer">WEB-DESIGN</a></li>
+      <li><a href="about.html">ABOUT-US</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <input
+    type="text"
+    id="username"
+    placeholder="Mobile number or email address"
+    autocomplete="username"
+    aria-label="Mobile number or email address"
+  />
+  <input  
+    type="password"
+    id="password"
+    placeholder="Password"
+    autocomplete="current-password"
+    aria-label="Password"
+  />
+  <button type="button" id="loginBtn" aria-label="Log In"><a href="index.html" style="text-decoration: none; color: white;">Log In</a></button>
+  <div class="link-container">
+    <a href="#" class="forgot-password" tabindex="0">Forgotten password?</a><br />
+    <a href="signin.html" class="create-account-btn" tabindex="0">Create new account</a>
+  </div>
+</main>
+<script>
+  document.getElementById("loginBtn").addEventListener("click", () => {
+    const email = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    if (!email || !password) {
+      alert("Please enter both username and password.");
+      return;
+    }
+    const storedUser = JSON.parse(localStorage.getItem("userData"));
+    if (!storedUser) {
+      alert("No account found. Please sign up first.");
+      return;
+    }
+    if (email === storedUser.email && password === storedUser.password) {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid credentials. Try again.");
+    }
+  });
+</script>
+</body>
+</html>

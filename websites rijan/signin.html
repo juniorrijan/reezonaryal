@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign-Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      /* background: linear-gradient(135deg, #4e54c8, #8f94fb); */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+       font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .box {
+      max-width: 400px;
+      width: 90%;
+      padding: 30px;
+      background-color: #ffffffdd;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #4e54c8;
+      margin-bottom: 10px;
+    }
+
+    h6 {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #4e54c8;
+      outline: none;
+      box-shadow: 0 0 5px rgba(78, 84, 200, 0.5);
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #8f94fb, #4e54c8);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .signin-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .signin-link a {
+      color: #4e54c8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .signin-link a:hover {
+      color: #ff0055;
+      text-decoration: underline;
+      transition: 0.3s;
+    }
+    h1:hover{
+color: rgb(85, 21, 175);
+transition: 0.4s ease all;
+    cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>SIGN-UP</h1>
+    <h6>Sign up to continue</h6>
+
+    <input type="text" id="name" placeholder="Name" />
+    <input type="text" id="email" placeholder="Email" />
+    <input type="text" id="password" placeholder="Password" />
+
+    <div class="remember">
+      <input type="checkbox" id="remember" />
+      <label for="remember">Remember Me</label>
+    </div>
+
+    <button id="signupBtn">Sign up</button>
+
+    <div class="signin-link">
+      Already have an account? <a href="login.html">Sign In</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signupBtn").addEventListener("click", function () {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!name || !email || !password) {
+        alert("Please fill in all fields!");
+        return;
+      }
+
+      const user = {
+        name: name,
+        email: email,
+        password: password
+      };
+
+      localStorage.setItem("userData", JSON.stringify(user));
+      alert("Account created successfully!");
+
+      
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+    });
+  </script>
+</body>
+</html>

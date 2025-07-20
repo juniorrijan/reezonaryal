@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Shopping Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #ff0055;
+      --accent-color: #00ffe7;
+      --bg-glass: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+      color: white;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-glass);
+      padding: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-right: 1rem;
+      border-radius: 5px;
+    }
+
+    .cart-item-info h3 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-total {
+      text-align: right;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .empty-cart a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+     
+  .logo {
+  font-size: 23px;
+  /* font-weight: bold; */
+  /* font-family: 'Segoe UI', sans-serif; */
+  display: inline-block;
+   position: absolute;
+    left: 30px;
+    font-weight: 700; 
+    font-size: 1.6rem;
+   color: #ff0055;
+    user-select: no ne;
+    letter-spacing: 1px;
+   cursor: pointer;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+ background: #000000dd;
+     padding: 7px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    box-sizing: border-box;
+    /* z-index: 100; */
+          border-bottom: 1px solid var(--main-color);
+                font-family: 'Orbitron', sans-serif;
+                margin: -1px -40px;
+
+
+  }
+  /* Brand name "RIJAN" top-left */
+ 
+  nav {
+    max-width: 900px;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    /* justify-content: center; */
+    gap: 40px;
+  }
+  .nav-list a {
+    color: #fff;
+    font-weight: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    /* padding-bottom: 4px; */
+    transition: color 0.3s ease;
+  }
+  /* Underline on hover and focus */
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: #ffd700; /* gold/yellow underline */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  .nav-list a:hover::after,
+  .nav-list a:focus::after {
+    width: 100%;
+  }
+  .nav-list a:hover,
+  .nav-list a:focus {
+    /* color: #ffd700; */
+    outline: none;
+  }
+
+
+.logo-green {
+  color: #34ef82; 
+}
+
+.logo-dark {
+  color: #0a7fe6; 
+}
+  :root {
+      --main-color: #ff0055;
+      --accent-color: #00ffe7;
+      --bg-glass: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+<div class="logo" style="cursor: pointer;">
+<a href="index.html" style="text-decoration: none;"><span class="logo-green">Electro-</span> <span class="logo-dark">Bazzar</span>
+</a>
+</div>  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="https://developer.atlassian.com/server/jira/platform/web-section/" target="_blank" rel="noopener noreferrer">WEB-SECTION</a></li>
+      <li><a href="https://www.webdesign.org/" target="_blank" rel="noopener noreferrer">WEB-DESIGN</a></li>
+      <li><a href="about.html">ABOUT-US</a></li>
+    </ul>
+  </nav>
+</header> <br><br><br><br><br><br><br>
+  <div class="cart-container">
+    <h1>Your Shopping Cart</h1>
+    <div id="cart-items">
+      <!-- Items will appear here -->
+    </div>
+    <div class="cart-total" id="cart-total">
+      <!-- Total will appear here -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get cart data from localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalEl = document.getElementById('cart-total');
+
+      // If cart is empty
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+          <div class="empty-cart">
+            <p>Your cart is empty</p>
+            <a href="index.html">Continue shopping</a>
+          </div>
+        `;
+        cartTotalEl.style.display = 'none';
+        return;
+      }
+
+      // Display each cart item
+      let total = 0;
+      cart.forEach(item => {
+        const price = parseFloat(item.price.replace('₹', ''));
+        total += price;
+        
+        cartItemsContainer.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+              <h3>${item.name}</h3>
+              <p>${item.price}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      // Display total
+      cartTotalEl.textContent = `Total: ₹${total.toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>

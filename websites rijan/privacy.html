@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+ background: #000000dd;
+     padding: 7px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* keep nav centered */
+    box-sizing: border-box;
+    z-index: 100;
+          border-bottom: 1px solid var(--main-color);
+                font-family: 'Orbitron', sans-serif;
+
+
+  }
+   
+  nav {
+    max-width: 900px;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  background: var(--main-color);
+  color: white;
+}
+
+.scroll-to-top svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover svg {
+  transform: translateY(-3px);
+}
+  .nav-list a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  /* Underline on hover and focus */
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: #ffd700; /* gold/yellow underline */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  .nav-list a:hover::after,
+  .nav-list a:focus::after {
+    width: 100%;
+  }
+  .nav-list a:hover,
+  .nav-list a:focus {
+    /* color: #ffd700; */
+    outline: none;
+  }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #0077cc;
+    }
+
+    
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      font-size: 0.9rem;
+      color: var(--main-color);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 1rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+    .project-card a {
+      position: relative;
+      display: block;
+    }
+
+    .price {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ff0055;
+      color: white;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .project-card a:hover .price {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .cart-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--main-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+     .footer-container {
+        /* border-top: 1px solid #e7b9b9 ; */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+    .footer {
+  background-color: #e1e3f3; 
+  padding: 40px 20px;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  /* box-shadow: 0 0 15px #00f2ff; */
+  border-top: 2px solid #dfdfdf; 
+}
+   footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--main-color);
+  background: radial-gradient(circle, #2c275e, #4a448c, #494985);    
+
+    }
+
+.footer-section {
+  flex: 1 1 300px;
+    /* border-top: 1px solid #e7b9b9; */
+
+}
+
+.footer-section h2 {
+    /* border-top: 1px solid #e7b9b9; */
+
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.footer-section h2 .logo {
+  color: #06e106;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  color: #1cda68;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #f8e8e8;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #5d7ddf;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  /* border-top: 1px solid #e7b9b9; */
+  padding-top: 15px;
+  font-size: 14px;
+  color: hsl(0, 12%, 78%);
+}
+
+.footer-bottom .footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-bottom .footer-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #66d766;
+  font-weight: 500;
+}
+
+.footer-bottom .footer-links a:hover {
+  text-decoration: underline;
+}
+.logo {
+  font-size: 23px;
+  /* font-weight: bold; */
+  /* font-family: 'Segoe UI', sans-serif; */
+  display: inline-block;
+   position: absolute;
+    left: 30px;
+    font-weight: 700; 
+    font-size: 1.6rem;
+   color: #ff0055;
+    user-select: no ne;
+    letter-spacing: 1px;
+   cursor: pointer;
+}
+
+.logo-green {
+  color: #34ef82; 
+}
+
+.logo-dark {
+  color: #0a7fe6; 
+}
+  :root {
+      --main-color: #ff0055;
+      --accent-color: #00ffe7;
+      --bg-glass: rgba(255, 255, 255, 0.1);
+    }
+</style>
+</head>
+<body>
+<div class="scroll-to-top" id="scrollToTop">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+  </svg>
+</div>
+ <header>
+<div class="logo" style="cursor: pointer;">
+<a href="index.html" style="text-decoration: none;">  <span class="logo-green">Electro-</span><span class="logo-dark">Bazzar</span>
+</a>
+</div>  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="https://developer.atlassian.com/server/jira/platform/web-section/" target="_blank" rel="noopener noreferrer">WEB-SECTION</a></li>
+      <li><a href="https://www.webdesign.org/" target="_blank" rel="noopener noreferrer">WEB-DESIGN</a></li>
+      <li><a href="about.html">ABOUT-US</a></li>
+    </ul>
+  </nav>
+</header>
+<br><br>
+  <div class="container">
+    <p><strong>Effective Date:</strong> July 6, 2025</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect personal information you provide directly to us when you use our services, including name, email, and payment details.</p>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use your information to provide, maintain, and improve our services, respond to your requests, and send promotional communications.</p>
+
+    <h2>3. Sharing of Information</h2>
+    <p>We do not sell your personal information. We may share data with trusted third parties to provide essential services and comply with legal requirements.</p>
+
+    <h2>4. Your Rights</h2>
+    <p>You have the right to access, update, or delete your personal information. Contact us if you wish to exercise these rights.</p>
+
+    <h2>5. Cookies</h2>
+    <p>We use cookies to enhance your browsing experience. You can control cookie settings through your browser.</p>
+
+    <h2>6. Data Security</h2>
+    <p>We implement reasonable measures to protect your information from unauthorized access or disclosure.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Please review it periodically for any changes.</p>
+
+    <h2>8. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:aryalreezon87@gmail.com">aryalreezon87@gmail.com</a>.</p>
+  </div>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h2><span style="color: rgb(12, 203, 12);">Electro</span>-Bazzar</h2>
+      <h4>🛒 About <strong>Electro-Bazaar</strong></h4>
+      <p><strong>Electro-Bazaar</strong> is your reliable online shopping destination, offering a wide range of quality products at great prices. We ensure secure payments 🔒, fast delivery 🚛, and excellent customer support 💬 to make your shopping experience easy and enjoyable.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="#">Privacy policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h4>Get in touch</h4>
+      <p>+9779867741488</p>
+      <p>+9779764514855</p>
+      <p>aryalreezon87@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="#">Return Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <p>© 2025 Electro-Bazzar. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+  // Scroll-to-top functionality
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+// Show/hide button based on scroll position
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add('visible');
+  } else {
+    scrollToTopBtn.classList.remove('visible');
+  }
+});
+
+// Scroll to top when clicked
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+</body>
+</html>

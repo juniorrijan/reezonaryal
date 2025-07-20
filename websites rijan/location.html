@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Location Embed</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #2e2e2e;
+      min-height: 100vh;
+    }
+
+    .location-section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 14px 40px rgba(248, 181, 0, 0.3);
+      padding: 30px 40px;
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .location-section:hover {
+      box-shadow: 0 20px 50px rgba(248, 181, 0, 0.6);
+    }
+
+    .location-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ff7f00;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-shadow: 0 2px 4px rgba(255, 127, 0, 0.5);
+    }
+
+    .location-subtitle {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 25px;
+      color: #333;
+      font-style: italic;
+    }
+
+    .location-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #2a7a2a; /* nice green */
+      margin-bottom: 30px;
+      text-shadow: 0 1px 3px rgba(42, 122, 42, 0.4);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 660px;
+      height: 420px;
+      border: none;
+      border-radius: 20px;
+      box-shadow:
+        0 12px 25px rgba(255, 127, 0, 0.3),
+        inset 0 0 10px rgba(255, 191, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    iframe:hover {
+      transform: scale(1.03);
+      box-shadow:
+        0 18px 45px rgba(255, 127, 0, 0.6),
+        inset 0 0 15px rgba(255, 191, 0, 0.4);
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 20px 10px;
+      }
+      .location-section {
+        padding: 20px 25px;
+      }
+      .location-title {
+        font-size: 1.8rem;
+      }
+      .location-text {
+        font-size: 1.2rem;
+      }
+      iframe {
+        height: 320px;
+      }
+    }.logo {
+  font-size: 23px;
+  /* font-weight: bold; */
+  /* font-family: 'Segoe UI', sans-serif; */
+  display: inline-block;
+   position: absolute;
+    left: 30px;
+    font-weight: 700; 
+    font-size: 1.6rem;
+   color: #ff0055;
+    user-select: no ne;
+    letter-spacing: 1px;
+   cursor: pointer;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+ background: #000000dd;
+     padding: 7px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    box-sizing: border-box;
+    /* z-index: 100; */
+          border-bottom: 1px solid var(--main-color);
+                font-family: 'Orbitron', sans-serif;
+                margin: -1px -40px;
+
+
+  }
+  /* Brand name "RIJAN" top-left */
+ 
+  nav {
+    max-width: 900px;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    /* justify-content: center; */
+    gap: 40px;
+  }
+  .nav-list a {
+    color: #fff;
+    font-weight: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    /* padding-bottom: 4px; */
+    transition: color 0.3s ease;
+  }
+  /* Underline on hover and focus */
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: #ffd700; /* gold/yellow underline */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  .nav-list a:hover::after,
+  .nav-list a:focus::after {
+    width: 100%;
+  }
+  .nav-list a:hover,
+  .nav-list a:focus {
+    /* color: #ffd700; */
+    outline: none;
+  }
+
+
+.logo-green {
+  color: #34ef82; 
+}
+
+.logo-dark {
+  color: #0a7fe6; 
+}
+  :root {
+      --main-color: #ff0055;
+      --accent-color: #00ffe7;
+      --bg-glass: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+<div class="logo" style="cursor: pointer;">
+  <span class="logo-green">Electro-</span><span class="logo-dark">Bazzar</span>
+</div>  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="https://developer.atlassian.com/server/jira/platform/web-section/" target="_blank" rel="noopener noreferrer">WEB-SECTION</a></li>
+      <li><a href="https://www.webdesign.org/" target="_blank" rel="noopener noreferrer">WEB-DESIGN</a></li>
+      <li><a href="about.html">ABOUT-US</a></li>
+    </ul>
+  </nav>
+</header> <br>
+<br><br>    
+  <section class="location-section" aria-label="My location section">
+    <h1 class="location-title">My Location</h1>
+    <p class="location-text">Darbang, Myagdi, Nepal</p>
+    <h3 class="location-subtitle">Check it out on Google Maps</h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.616236609179!2d83.38428861507427!3d28.414289392449833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39961b7c7ff5293f%3A0xae876acda6d2fc1c!2sDarbang%2C%20Myagdi%2C%20Nepal!5e0!3m2!1sen!2sus!4v1686381034621!5m2!1sen!2sus"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Google Map showing Darbang, Myagdi, Nepal"
+    ></iframe>
+  </section>
+
+</body>
+</html>
